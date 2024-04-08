@@ -93,10 +93,14 @@ const deleteMany = async (req, res) => {
 
 const getAllProduct = async (req, res) => {
     try {
-        const { limit, page, sort, filter } = req.query
+        const {sort, filter } = req.query
+        const limit = req.query.limit || 10
+        const page = req.query.page || 0
+        
         const response = await ProductService.getAllProduct(Number(limit) || null, Number(page) || 0, sort, filter)
         return res.status(200).json(response)
     } catch (e) {
+        console.log(e)
         return res.status(404).json({
             message: e
         })

@@ -1,3 +1,4 @@
+// Đây có thể coi là model
 const User = require("../models/UserModel")
 const bcrypt = require("bcrypt")
 const { genneralAccessToken, genneralRefreshToken } = require("./JwtService")

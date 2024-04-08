@@ -1,3 +1,4 @@
+//Controller
 const UserService = require('../services/UserService')
 const JwtService = require('../services/JwtService')
 
@@ -23,7 +24,7 @@ const createUser = async (req, res) => {
             })
         }
         const response = await UserService.createUser(req.body)
-        return res.status(200).json(response)
+        return res.status(200).json(response) // Dữ liệu được trả về từ hàm UserService.createUser(req.body), Phản hồi về client (Nhận dữ liệu là JSON chuyển cho FE)
     } catch (e) {
         return res.status(404).json({
             message: e
